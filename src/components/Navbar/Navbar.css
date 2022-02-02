@@ -13,7 +13,12 @@ ul {
 
 li {
     display: inline;
-    margin:0px 20px  0px 20px;    
+    margin:0px 20px  0px 20px;
+      
+}
+a{
+    text-decoration: none;  
+    color: rgb(56, 54, 54);
 }
 
 .buttonNav{

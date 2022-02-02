@@ -7,10 +7,10 @@ const Navbar = () =>{
             <h3>Marketplace</h3>
         </div>        
         <ul>
-            <li>Notebooks</li>
-            <li>Celulares</li>
-            <li>Tablets</li>
-            <li>Accesorios</li>            
+            <li><a href="default.asp">Notebooks</a></li>
+            <li><a href="default.asp">Celulares</a></li>
+            <li><a href="default.asp">Tablets</a></li>
+            <li><a href="default.asp">Accesorios</a></li>
             <button className='buttonNav'>Login</button>            
         </ul>        
       </nav>
