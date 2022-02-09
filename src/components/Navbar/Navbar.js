@@ -1,19 +1,19 @@
 import './Navbar.css'  
+import Cartwidget from '../Cartwidget/Cartwidget';
 
 const Navbar = () =>{
     return(
-      <nav> 
-        <div>
-            <h3>Marketplace</h3>
-        </div>        
-        <ul>
-            <li><a href="default.asp">Notebooks</a></li>
-            <li><a href="default.asp">Celulares</a></li>
-            <li><a href="default.asp">Tablets</a></li>
-            <li><a href="default.asp">Accesorios</a></li>
-            <button className='buttonNav'>Login</button>            
-        </ul>        
-      </nav>
+    <nav>
+      <h2>Marketplace</h2>
+      <ul>
+        <li><a href="default.asp">Notebooks</a></li>
+        <li><a href="default.asp">Celulares</a></li>
+        <li><a href="default.asp">Tablets</a></li>
+        <li><a href="default.asp">Accesorios</a></li>
+      </ul>
+      <Cartwidget />  
+    </nav>
+             
     )
   }
 
