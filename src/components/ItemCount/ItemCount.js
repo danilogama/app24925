@@ -31,11 +31,11 @@ const ItemCount = ({ stock, initial,  onAdd }) => {
     
     return(
         
-        <div class="card">
+        <div className="card">
             <img src="/images/ntbkLenovo.jpg" alt="ntbkLenovo"  height="200px"/>
             <h1>Notebook Gaming HP</h1>
             
-            <p class="price">$19.99</p>
+            <p className="price">$1.300</p>
             <button onClick={decrement}>-</button>
             <h3>{count}</h3>
             <button onClick={increment}>+</button>
