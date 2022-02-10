@@ -30,18 +30,7 @@ const ItemCount = ({ stock, initial,  onAdd }) => {
     }    
     
     return(
-        <>
-        <div className='item'>
-
-            <h3>Producto</h3>
-            
-            <button onClick={decrement}>-</button>
-            <h3>{count}</h3>
-            <button onClick={increment}>+</button>
-            <h3></h3>
-            <button onClick={()=>onAdd(count)}>Agregar al carrito</button>
-        </div>
-
+        
         <div class="card">
             <img src="/images/ntbkLenovo.jpg" alt="ntbkLenovo"  height="200px"/>
             <h1>Notebook Gaming HP</h1>
@@ -52,7 +41,6 @@ const ItemCount = ({ stock, initial,  onAdd }) => {
             <button onClick={increment}>+</button>
             <p><button onClick={()=>onAdd(count)}>Agregar al carrito</button></p>
         </div>
-        </>
         
     )
 }

@@ -1,13 +1,4 @@
-.item{
-    align-items: center;
-    justify-content: center;
-    text-align: center;
-}
 
-.item button{
-    height: 50px;
-    width: 50px;
-}
 
 .card {
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
