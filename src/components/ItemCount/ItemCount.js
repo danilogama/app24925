@@ -22,26 +22,20 @@ const ItemCount = ({ stock, initial,  onAdd }) => {
         }
     }
 
-    const decrement = () => {
+    const decrement = () => {        
+        //tambien puede ser: count > initial && setCount(count - 1)
         if(count > initial) {
             setCount(count - 1)
         } 
-
     }    
     
     return(
-        
-        <div className="card">
-            <img src="/images/ntbkLenovo.jpg" alt="ntbkLenovo"  height="200px"/>
-            <h1>Notebook Gaming HP</h1>
-            
-            <p className="price">$1.300</p>
+        <>            
             <button onClick={decrement}>-</button>
             <h3>{count}</h3>
             <button onClick={increment}>+</button>
             <p><button onClick={()=>onAdd(count)}>Agregar al carrito</button></p>
-        </div>
-        
+        </>        
     )
 }
 
