@@ -7,7 +7,7 @@ const ItemListContainer = (props) =>{
 
     const [products,setProducts] = useState([]);
 	
-	useEffect(()=> {	
+	useEffect(()=> {	 
 		getProducts.then((res) =>{			
 			setProducts(res);
 		})
