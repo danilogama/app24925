@@ -2,8 +2,14 @@
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
   max-width: 250px;
   margin: auto;
+  margin-top: 50px;
   text-align: center;
   font-family: arial;
+}
+
+.card h5{
+  margin: 10px;
+  text-align: left;
 }
 
 .price {
