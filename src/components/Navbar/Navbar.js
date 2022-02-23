@@ -6,51 +6,27 @@ import {Link,  NavLink } from 'react-router-dom'
 const Navbar = () =>{
     return(
     <nav>
-     <NavLink
-            to={'/'} className='navBarTitle'><h2>Marketplace</h2> </NavLink> 
-      {/* <ul>
-        <li><a href="default.asp">Notebooks</a></li>
-        <li><a href="default.asp">Celulares</a></li>
-        <li><a href="default.asp">Tablets</a></li>
-        <li><a href="default.asp">Accesorios</a></li>
-      </ul> */}
+     <NavLink to={'/'} className='navBarTitle'><h2>Marketplace</h2> </NavLink> 
       <div className="Categories">
-          <NavLink
-            to={'/category/celular'}
-            className={({ isActive }) =>
+          <NavLink to={'/category/celular'} className={({ isActive }) =>
               isActive ? 'ActiveOption' : 'Option'
-            }
-          >
-            Celulares
+            }>Celulares
           </NavLink>
-          <NavLink
-            to={'/category/tablet'}
-            className={({ isActive }) =>
+          <NavLink to={'/category/tablet'} className={({ isActive }) =>
               isActive ? 'ActiveOption' : 'Option'
-            }
-          >
-            Tablets
+            }>Tablets
           </NavLink>
-          <NavLink
-            to={'/category/notebook'}
-            className={({ isActive }) =>
+          <NavLink to={'/category/notebook'} className={({ isActive }) =>
               isActive ? 'ActiveOption' : 'Option'
-            }
-          >
-            Notebooks
+            }>Notebooks
           </NavLink>
-          <NavLink
-            to={'/category/accesorios'}
-            className={({ isActive }) =>
+          <NavLink to={'/category/accesorios'} className={({ isActive }) =>
               isActive ? 'ActiveOption' : 'Option'
-            }
-          >
-            Accesorios
+            }>Accesorios
           </NavLink>
         </div>
       <Cartwidget />  
-    </nav>
-             
+    </nav>             
     )
   }
 

@@ -14,11 +14,8 @@ function App() {
           <Route path='/about' element={<h1>About</h1>} />
           <Route path='/category/:categoryId' element={<ItemListContainer />}/>
           <Route path='/item/:productId' element={<ItemDetailContainer />}/>
-          {/* <ItemListContainer greeting="Hola, bienvenido!"/>
-          <ItemDetailContainer/> */}
         </Routes>    
       </BrowserRouter>
-
     </div>
   );
 }

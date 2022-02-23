@@ -27,20 +27,6 @@ const ItemDetailContainer = (props) =>{
 
     }, [productId])
 
-	
-	// useEffect(()=> {	
-	// 	getItemDetail.then((res) =>{			
-	// 		setProducts(res);
-	// 	})
-	// 	.catch((error) =>{
-	// 		console.log(error)
-	// 	})
-    //     .finally(()=>{
-	// 		setLoading(false)
-	// 	})
-			
-	// }, []);
-
     return (
         <>
             {loading ? (<div className="loader"></div>) : (<ItemDetail products={products}/>)}
