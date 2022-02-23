@@ -3,8 +3,17 @@
   max-width: 250px;
   margin: auto;
   margin-top: 50px;
+  height: 400px;
+  width: 250px;
   text-align: center;
   font-family: arial;
+}
+
+.card img{
+  height: 150px;
+  width: 220px;
+  display:block;
+  margin:auto;
 }
 
 .card h5{
@@ -31,6 +40,24 @@
 }
 
 .card button:hover {
+  opacity: 0.7;
+}
+
+.buttonItem{
+  
+  text-decoration: none;
+  border: none;
+  outline: 0;
+  padding: 12px;
+  color: white;
+  background-color: #000;
+  text-align: center;
+  cursor: pointer;
+  width: 100%;
+  font-size: 18px;
+  margin-top: 7px;
+}
+.buttonItem:hover{
   opacity: 0.7;
 }
 

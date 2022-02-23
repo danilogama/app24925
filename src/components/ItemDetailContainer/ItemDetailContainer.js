@@ -2,25 +2,44 @@ import './ItemDetailContainer.css';
 import React,{useEffect ,useState} from 'react';
 import ItemDetail from '../ItemDetail/ItemDetail';
 import {getItemDetail} from '../ItemDetail/ItemDetail'
+import { useParams } from 'react-router-dom'
 
 
 const ItemDetailContainer = (props) =>{
 
     const [products,setProducts] = useState([]);
     const [loading,setLoading] = useState(true);
-	
-	useEffect(()=> {	
-		getItemDetail.then((res) =>{			
-			setProducts(res);
-		})
-		.catch((error) =>{
-			console.log(error)
-		})
+    const { productId } = useParams()
+
+    useEffect(() => {
+        getItemDetail(productId).then(item => {
+            setProducts(item)
+        }).catch(err  => {
+            console.log(err)
+        })        
         .finally(()=>{
 			setLoading(false)
 		})
+
+        return (() => {
+            setProducts()
+        })
+
+    }, [productId])
+
+	
+	// useEffect(()=> {	
+	// 	getItemDetail.then((res) =>{			
+	// 		setProducts(res);
+	// 	})
+	// 	.catch((error) =>{
+	// 		console.log(error)
+	// 	})
+    //     .finally(()=>{
+	// 		setLoading(false)
+	// 	})
 			
-	}, []);
+	// }, []);
 
     return (
         <>

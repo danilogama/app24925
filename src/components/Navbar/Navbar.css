@@ -4,18 +4,35 @@ nav {
     justify-content: space-between; 
     padding: 1rem 2rem; 
     background: #c05252; 
+    align-items: center;
   }
   
-  nav ul {
+  /* nav ul {
     display: flex; 
     list-style: none; 
   }
   
   nav li {
     padding-left: 1rem; 
-  }
+  } */
 
 nav a {
   text-decoration: none;
   color: #000000
+}
+
+.Categories{
+  display: flex; 
+  list-style: none; 
+}
+
+.Option{
+  padding-left: 1rem; 
+  text-decoration: none;
+  color: #000000
+}
+
+.ActiveOption{  
+  padding-left: 1rem; 
+  color: #ffffff
 }
