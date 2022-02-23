@@ -7,14 +7,14 @@ Se trata de un ecommerce de articulos relacionados a la tecnologia.
 
 ## En el mismo se utilizaron las herramientas:
 
-Visual Studio Code
-React
-React-Router
-Bootstrap
-GitHub
+Visual Studio Code // 
+React // 
+React-Router // 
+Bootstrap // 
+GitHub 
 
 ### Informacion del desarrollador:
 
-Danilo Gama 
-email: danilogm7@gmail.com
+Danilo Gama // 
+email: danilogm7@gmail.com //
 github: https://github.com/danilogama/app24925/
