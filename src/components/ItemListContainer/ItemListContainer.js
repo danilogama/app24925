@@ -40,7 +40,6 @@ const ItemListContainer = (props) =>{
 
     }, [categoryId])
 
-    console.log(prods)
     return (
         <>          
             <h2>{props.greeting}</h2>   

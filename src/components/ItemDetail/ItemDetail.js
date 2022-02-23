@@ -1,5 +1,6 @@
 import { products,addProduct } from "../Item/Item";
 import ItemCount from '../ItemCount/ItemCount';
+import '../ItemDetail/ItemDetail.css';
 
 
 // export const getItemDetail =  new Promise ((resolve,reject) => {
@@ -37,12 +38,12 @@ export const getItemByCategory = (category) => {
 
 const ItemDetail = ({products}) =>{
 	return (	
-                <div className="card" key={products.id}>            
+                <div className="card cardDetail" key={products.id}>            
                     <h2>{products.title}</h2>
                     <img src={products.pictureUrl} alt={products.id}  height="120px"/>                       
                     <p className="price">{products.price}</p>
                     <h5>{products.description}</h5>
-                    <h5>{products.category}</h5>
+                    {/* <h5>{products.category}</h5> */}
                     <ItemCount stock={products.stock} initial={1} onAdd={addProduct}/> 
                     
                     {/* <ItemCount stock={products?.stock} initial={1} onAdd={addProduct}/>  */}

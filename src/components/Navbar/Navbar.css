@@ -14,11 +14,21 @@ nav {
   
   nav li {
     padding-left: 1rem; 
-  } */
+  } 
 
 nav a {
   text-decoration: none;
   color: #000000
+}*/
+
+.navBarTitle{
+  text-decoration: none;
+  color: black;
+}
+
+.navBarTitle:hover{
+  text-decoration: none;
+  color: rgb(255, 255, 255);
 }
 
 .Categories{
@@ -32,7 +42,21 @@ nav a {
   color: #000000
 }
 
+.Option:hover{
+  text-decoration: none;
+  color: #ffffff
+}
+
 .ActiveOption{  
+  
+  text-decoration: none;
   padding-left: 1rem; 
+  color: #ffffff
+}
+
+.ActiveOption:hover{  
+  
+  text-decoration: none;
+  text-decoration: none;
   color: #ffffff
 }

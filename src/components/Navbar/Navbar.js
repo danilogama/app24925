@@ -7,7 +7,7 @@ const Navbar = () =>{
     return(
     <nav>
      <NavLink
-            to={'/'}><h2>Marketplace</h2> </NavLink> 
+            to={'/'} className='navBarTitle'><h2>Marketplace</h2> </NavLink> 
       {/* <ul>
         <li><a href="default.asp">Notebooks</a></li>
         <li><a href="default.asp">Celulares</a></li>
@@ -21,7 +21,7 @@ const Navbar = () =>{
               isActive ? 'ActiveOption' : 'Option'
             }
           >
-            Celular
+            Celulares
           </NavLink>
           <NavLink
             to={'/category/tablet'}
@@ -29,7 +29,7 @@ const Navbar = () =>{
               isActive ? 'ActiveOption' : 'Option'
             }
           >
-            Tablet
+            Tablets
           </NavLink>
           <NavLink
             to={'/category/notebook'}
@@ -37,7 +37,7 @@ const Navbar = () =>{
               isActive ? 'ActiveOption' : 'Option'
             }
           >
-            Notebook
+            Notebooks
           </NavLink>
           <NavLink
             to={'/category/accesorios'}
