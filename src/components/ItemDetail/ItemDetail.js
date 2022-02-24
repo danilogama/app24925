@@ -1,8 +1,9 @@
 import { products,addProduct } from "../Item/Item";
 import ItemCount from '../ItemCount/ItemCount';
 import '../ItemDetail/ItemDetail.css';
-import React,{useEffect ,useState} from 'react';
+import React,{useState} from 'react';
 import { Link } from 'react-router-dom'
+import CartContext from '../../context/CartContext'
 
 export const getItemDetail = (id) => {
     return new Promise((resolve) => {
@@ -36,12 +37,28 @@ export const getItemByCategory = (category) => {
 const ItemDetail = ({products}) =>{
 
         
+
+    const { AddItem } = useContext(CartContext)
+
     const [quantity, setQuantity] = useState(0)
     const handleOnAdd = (quantity) => {
         setQuantity(quantity)
+
+        const productToAdd = {
+            id,
+            title,
+            stock,            
+            category,
+            description,
+            price,
+            pictureUrl,
+            
+        }
+
+        AddItem(productToAdd, quantity)
     }
 
-
+    console.log(CartContext)
 
 	return (	
                 <div className="card cardDetail" key={products.id}>            
