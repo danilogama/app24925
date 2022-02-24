@@ -3,4 +3,24 @@
     height: 580px;
     width: 250px;
   }
-  
+
+  .OptionCart{
+
+    border: none;
+    outline: 0;
+    padding: 12px;
+    color: white;
+    background-color: #000;
+    text-align: center;
+    cursor: pointer;
+    width: 100%;
+    font-size: 18px;
+    margin-top: 70px;
+    margin-bottom:110px;
+    text-decoration: none;
+    
+  }
+
+  .OptionCart:hover{
+    opacity: 0.7;
+  }

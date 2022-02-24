@@ -1,6 +1,8 @@
 import { products,addProduct } from "../Item/Item";
 import ItemCount from '../ItemCount/ItemCount';
 import '../ItemDetail/ItemDetail.css';
+import React,{useEffect ,useState} from 'react';
+import { Link } from 'react-router-dom'
 
 export const getItemDetail = (id) => {
     return new Promise((resolve) => {
@@ -29,14 +31,30 @@ export const getItemByCategory = (category) => {
     })
 }
 
+
+
 const ItemDetail = ({products}) =>{
+
+        
+    const [quantity, setQuantity] = useState(0)
+    const handleOnAdd = (quantity) => {
+        setQuantity(quantity)
+    }
+
+
+
 	return (	
                 <div className="card cardDetail" key={products.id}>            
                     <h2>{products.title}</h2>
                     <img src={products.pictureUrl} alt={products.id}  height="120px"/>                       
                     <p className="price">{products.price}</p>
                     <h5>{products.description}</h5>
-                    <ItemCount stock={products.stock} initial={1} onAdd={addProduct}/> 
+                    <>
+                        {quantity > 0 ? 
+                            <Link to={'/cart'} className='OptionCart'>Ir al carrito de compras</Link> :
+                            <ItemCount initial={1} stock={products.stock} onAdd={handleOnAdd} />
+                        }
+                    </>
                 </div>   
     )
 }
