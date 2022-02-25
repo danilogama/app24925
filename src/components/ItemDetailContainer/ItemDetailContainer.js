@@ -5,7 +5,7 @@ import {getItemDetail} from '../ItemDetail/ItemDetail'
 import { useParams } from 'react-router-dom'
 
 
-const ItemDetailContainer = (props) =>{
+const ItemDetailContainer = () =>{
 
 
     const [products,setProducts] = useState([]);
@@ -30,7 +30,7 @@ const ItemDetailContainer = (props) =>{
 
     return (
         <>
-            {loading ? (<div className="loader"></div>) : (<ItemDetail products={products}/>)}
+            {loading ? (<div className="loader"></div>) : (<ItemDetail {...products}/>)}
         </>    
     )    
   }

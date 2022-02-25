@@ -1,10 +1,15 @@
 import './Navbar.css'  
 import Cartwidget from '../Cartwidget/Cartwidget';
-import {Link,  NavLink } from 'react-router-dom'
+import { NavLink } from 'react-router-dom'
+import CartContext from '../../context/CartContext'
+import React,{useContext} from 'react';
 
 
 const Navbar = () =>{
-    return(
+
+  const { clear } = useContext(CartContext)  
+  
+  return(
     <nav>
      <NavLink to={'/'} className='navBarTitle'><h2>Marketplace</h2> </NavLink> 
       <div className="Categories">
@@ -25,7 +30,10 @@ const Navbar = () =>{
             }>Accesorios
           </NavLink>
         </div>
-      <Cartwidget />  
+        <div>
+          <Cartwidget /> 
+          <button className='buttonCart' onClick={clear}>Vaciar carrito</button>           
+        </div>
     </nav>             
     )
   }

@@ -2,10 +2,14 @@ import { createContext, useState } from "react"
 
 const Context = createContext()
 
+
 export const CartContextProvider = ({ children }) => {
     const [cart, setCart] = useState([])
-
-    const addItem = (productToAdd, quantity) => {
+    
+    /* Console para pruebas */
+    //console.log(cart)
+    
+    const AddItem = (productToAdd, quantity) => {
 
         const newObj = {
             ...productToAdd,
@@ -13,28 +17,44 @@ export const CartContextProvider = ({ children }) => {
         }
 
         if(isInCart(productToAdd.id)) {
-            //Logica de producto repetido
-        } else {
+            const itemDuplicate = cart.map(p =>{
+                if(p.id === newObj.id){
+                    p.quantity += newObj.quantity                    
+                }                
+                return p;
+            })
+            setCart(itemDuplicate)
+
+            } else {
             setCart([...cart, newObj])
         }
     }
 
     const removeItem = (id) => {
+        const cartResult = cart.filter(p => p.id !== id) 
+        setCart(cartResult)
+    }
 
+    const clear = () =>{
+        setCart([])
     }
 
     const isInCart = (id) => {
         return cart.some(p => p.id === id)
     }
 
+    
     return (
         <Context.Provider value={{
             cart,
-            addItem,
-            removeItem
+            AddItem,
+            removeItem,
+            clear
             }}>
             {children}
+            
         </Context.Provider>
+        
     )
 }
 

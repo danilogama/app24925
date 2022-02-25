@@ -1,7 +1,7 @@
-import { products,addProduct } from "../Item/Item";
+import { products} from "../Item/Item";
 import ItemCount from '../ItemCount/ItemCount';
 import '../ItemDetail/ItemDetail.css';
-import React,{useState} from 'react';
+import React,{useState,useContext} from 'react';
 import { Link } from 'react-router-dom'
 import CartContext from '../../context/CartContext'
 
@@ -34,16 +34,14 @@ export const getItemByCategory = (category) => {
 
 
 
-const ItemDetail = ({products}) =>{
+const ItemDetail = ({id, title, stock, category, description, price, pictureUrl}) =>{        
 
-        
-
-    const { AddItem } = useContext(CartContext)
+    const {cart, AddItem, removeItem } = useContext(CartContext)
 
     const [quantity, setQuantity] = useState(0)
+
     const handleOnAdd = (quantity) => {
         setQuantity(quantity)
-
         const productToAdd = {
             id,
             title,
@@ -51,27 +49,29 @@ const ItemDetail = ({products}) =>{
             category,
             description,
             price,
-            pictureUrl,
-            
+            pictureUrl,           
         }
-
-        AddItem(productToAdd, quantity)
+        AddItem(productToAdd, quantity);
     }
 
-    console.log(CartContext)
+    const handleRemoveItem = () =>{
+        removeItem(id,cart);
+    }
+    //clear();
 
 	return (	
-                <div className="card cardDetail" key={products.id}>            
-                    <h2>{products.title}</h2>
-                    <img src={products.pictureUrl} alt={products.id}  height="120px"/>                       
-                    <p className="price">{products.price}</p>
-                    <h5>{products.description}</h5>
+                <div className="card cardDetail" key={id}>            
+                    <h2>{title}</h2>
+                    <img src={pictureUrl} alt={id}  height="120px"/>                       
+                    <p className="price">{price}</p>
+                    <h5>{description}</h5>
                     <>
                         {quantity > 0 ? 
                             <Link to={'/cart'} className='OptionCart'>Ir al carrito de compras</Link> :
-                            <ItemCount initial={1} stock={products.stock} onAdd={handleOnAdd} />
+                            <ItemCount initial={1} stock={stock} onAdd={handleOnAdd} />
                         }
                     </>
+                    <button className="buttonRemove" onClick={handleRemoveItem}>Eliminar del carrito</button>
                 </div>   
     )
 }

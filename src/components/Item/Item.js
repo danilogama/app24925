@@ -34,7 +34,7 @@ export const addProduct = (count) =>{
 const Item = ({product}) =>{
 	return (
 		<>    
-		<div class="col-sm">
+		<div className="col-sm">
 			<div className="card">   
 				<div className='cardtitle'>
 					<h4>{product.title}</h4>
