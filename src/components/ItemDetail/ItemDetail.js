@@ -55,6 +55,7 @@ const ItemDetail = ({id, title, stock, category, description, price, pictureUrl}
     }
 
     const handleRemoveItem = () =>{
+        
         removeItem(id,cart);
     }
     //clear();
@@ -67,11 +68,14 @@ const ItemDetail = ({id, title, stock, category, description, price, pictureUrl}
                     <h5>{description}</h5>
                     <>
                         {quantity > 0 ? 
-                            <Link to={'/cart'} className='OptionCart'>Ir al carrito de compras</Link> :
+                            <>
+                                <Link to={'/cart'} className='OptionCart'>Ir al carrito de compras</Link>    
+                                {/* luego de darle click a eliminar deberia volver a aparecer ItemCount  */}
+                                <button className="buttonRemove" onClick={handleRemoveItem}>Eliminar del carrito</button>
+                            </>:                           
                             <ItemCount initial={1} stock={stock} onAdd={handleOnAdd} />
                         }
                     </>
-                    <button className="buttonRemove" onClick={handleRemoveItem}>Eliminar del carrito</button>
                 </div>   
     )
 }
