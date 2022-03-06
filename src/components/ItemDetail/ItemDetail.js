@@ -4,6 +4,7 @@ import '../ItemDetail/ItemDetail.css';
 import React,{useState,useContext} from 'react';
 import { Link } from 'react-router-dom'
 import CartContext from '../../context/CartContext'
+import { useNotificationServices } from "../../services/notifications/NotificationServices";
 
 export const getItemDetail = (id) => {
     return new Promise((resolve) => {
@@ -38,6 +39,8 @@ const ItemDetail = ({id, title, stock, category, description, price, pictureUrl}
 
     const {cart, AddItem, removeItem } = useContext(CartContext)
 
+    const setNotification = useNotificationServices()
+    
     const [quantity, setQuantity] = useState(0)
 
     const handleOnAdd = (quantity) => {
@@ -51,7 +54,8 @@ const ItemDetail = ({id, title, stock, category, description, price, pictureUrl}
             price,
             pictureUrl,           
         }
-        AddItem(productToAdd, quantity);
+        AddItem(productToAdd, quantity);        
+        setNotification('success',`Se agrego ${title} al carrito`)
     }
 
     const handleRemoveItem = () =>{
@@ -64,12 +68,12 @@ const ItemDetail = ({id, title, stock, category, description, price, pictureUrl}
                 <div className="card cardDetail" key={id}>            
                     <h2>{title}</h2>
                     <img src={pictureUrl} alt={id}  height="120px"/>                       
-                    <p className="price">{price}</p>
+                    <p className="price">U$S {price}</p>
                     <h5>{description}</h5>
                     <>
                         {quantity > 0 ? 
                             <>
-                                <Link to={'/cart'} className='OptionCart'>Ir al carrito de compras</Link>    
+                                <Link to={'/cart'} className='OptionCart'>Terminar compra</Link>    
                                 {/* luego de darle click a eliminar deberia volver a aparecer ItemCount  */}
                                 <button className="buttonRemove" onClick={handleRemoveItem}>Eliminar del carrito</button>
                             </>:                           

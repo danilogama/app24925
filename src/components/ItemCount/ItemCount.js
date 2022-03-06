@@ -5,6 +5,7 @@ const ItemCount = ({ stock, initial,  onAdd }) => {
 
 
     useEffect(() => {
+        
         setCount(initial)
 
         return () => {

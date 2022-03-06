@@ -1,15 +1,14 @@
 import './Navbar.css'  
 import Cartwidget from '../Cartwidget/Cartwidget';
 import { NavLink } from 'react-router-dom'
-import CartContext from '../../context/CartContext'
-import React,{useContext} from 'react';
+import React from 'react';
 
 
 const Navbar = () =>{
-
-  const { clear } = useContext(CartContext)  
+  
   
   return(
+    
     <nav>
      <NavLink to={'/'} className='navBarTitle'><h2>Marketplace</h2> </NavLink> 
       <div className="Categories">
@@ -31,8 +30,7 @@ const Navbar = () =>{
           </NavLink>
         </div>
         <div>
-          <Cartwidget /> 
-          <button className='buttonCart' onClick={clear}>Vaciar carrito</button>           
+          <Cartwidget />           
         </div>
     </nav>             
     )
