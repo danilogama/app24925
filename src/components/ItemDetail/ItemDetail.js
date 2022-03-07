@@ -33,14 +33,10 @@ export const getItemByCategory = (category) => {
     })
 }
 
-
-
 const ItemDetail = ({id, title, stock, category, description, price, pictureUrl}) =>{        
 
     const {cart, AddItem, removeItem } = useContext(CartContext)
-
-    const setNotification = useNotificationServices()
-    
+    const setNotification = useNotificationServices()    
     const [quantity, setQuantity] = useState(0)
 
     const handleOnAdd = (quantity) => {
@@ -62,7 +58,6 @@ const ItemDetail = ({id, title, stock, category, description, price, pictureUrl}
         
         removeItem(id,cart);
     }
-    //clear();
 
 	return (	
                 <div className="card cardDetail" key={id}>            
