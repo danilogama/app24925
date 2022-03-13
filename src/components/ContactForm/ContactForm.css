@@ -5,6 +5,17 @@
     align-items: center;
 }
 
+.ContactContainer{
+    
+    margin-top: 10px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+   
+
+}
+
 .LabelContact {
     display: flex;
     flex-direction: column;

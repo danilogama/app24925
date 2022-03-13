@@ -11,8 +11,8 @@ const firebaseConfig = {
   measurementId: "G-NX90GSGX8K"
 };
 
-// Initialize Firebase
+
 const app = initializeApp(firebaseConfig);
 
-// Initialize Firestore
+
 export const firestoreDb = getFirestore(app)

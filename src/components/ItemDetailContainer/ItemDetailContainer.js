@@ -28,19 +28,7 @@ const ItemDetailContainer = () =>{
         }).finally(() => {
             setLoading(false)
         })
-
-
-        /*
-        getItemDetail(productId).then(item => {
-            setProducts(item)
-        }).catch(err  => {
-            console.log(err)
-            setNotification('error',`Error buscando producto: ${err}`)
-        })        
-        .finally(()=>{
-			setLoading(false)
-		})*/
-
+        
         return (() => {
             setProducts()
         })

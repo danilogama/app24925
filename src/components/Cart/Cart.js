@@ -1,5 +1,5 @@
 import './Cart.css' 
-import { useState, useContext, useRef } from 'react'
+import { useState, useContext, useRef} from 'react'
 import CartContext from '../../context/CartContext'
 import { useNotificationServices } from "../../services/notifications/NotificationServices"
 import Togglable from '../Togglable/Togglable'
@@ -7,7 +7,6 @@ import ContactForm from '../ContactForm/ContactForm'
 import { writeBatch, getDocs, collection, addDoc, Timestamp, where, query, documentId } from 'firebase/firestore'
 import { firestoreDb } from '../../services/firebase/firebase'
 import CartItem from '../CartItem/CartItem'
-
 
 const Cart = () => {
 
@@ -21,14 +20,18 @@ const Cart = () => {
 
     const { cart, clear, removeItem, getTotal } = useContext(CartContext)
 
+    
+
     const contactFormRef = useRef()
 
     const setNotification = useNotificationServices()
 
+    
     const confirmOrder = () => {
         if(contact.phone !== '' && contact.address !== '' && contact.comment !== '' && contact.name !== '') {
+           
             setProcessingOrder(true)
-            
+
             const objOrder = {
                 buyer: contact,
                 items: cart,
@@ -40,6 +43,7 @@ const Cart = () => {
             const outOfStock = []
             
             const ids = objOrder.items.map(i => i.id)
+
 
             getDocs(query(collection(firestoreDb, 'products'),where(documentId(), 'in', ids)))
                 .then(response => {
@@ -59,7 +63,7 @@ const Cart = () => {
                         })
                     } else {
                         outOfStock.forEach(prod => {
-                            setNotification('error', `El producto ${prod.name} no tiene stock disponible`)
+                            setNotification('error', `El producto ${prod.title} no tiene stock disponible`)
                             removeItem(prod.id)
                         })    
                     }               
@@ -75,52 +79,25 @@ const Cart = () => {
     }
 
     if(processingOrder) {
-        return <h1>Se esta procesando su orden</h1>
+        return (<div className="loader"></div>)
     }
+
 
     if(cart.length === 0) {
         return <div className='cartDetail'>
             <h1>No hay productos en el carrito</h1>
         </div>
     }
-/*
-    const handleRemoveItem = (id, title) => {
-        removeItem(id)
-        setNotification('info', `Se removio ${title} del carrito`)
-    }
-    */
 
-//     return (
-//         <div className='cartDetail'>
-//             <h1>Productos del carrito</h1>            
-//             {
-//                 cart.map(prod => {
-//                     return (
-//                         <>
-//                             <hr></hr>
-//                             <div key={prod.id} style={{ display: 'flex'}}>
-//                                 <h5>{prod.title}&nbsp;-&nbsp;</h5>                            
-//                                 <h5>Cantidad: {prod.quantity}</h5>
-//                                 <button className='cartButtom' onClick={() => handleRemoveItem(prod.id, prod.title)}>X</button>
-//                             </div>
-//                         </>
-//                     )
-//             })}
-//             <hr></hr>
-//             <h1>Total: U$S {getTotal()}</h1>
-//         </div>
-//     )
-return ( 
+    return ( 
     <div>
-        {/* <h1>Cart</h1> */}
         <h1>Productos del carrito</h1> 
         <div className='cartDetail'>
         { cart.map(p => <CartItem key={p.id} {...p}/>) }
         </div>
-        {/* <h3>Total: ${getTotal()}</h3> */}
         <h1>Total: U$S {getTotal()}</h1>
-        <button onClick={() => clear()} className="Button">Cancelar compra</button>
-        <button onClick={() => confirmOrder()} className="Button">Confirmar Compra</button>
+        <button onClick={() => clear()} className="buttonItem" style={{backgroundColor: '#db4025'}} >Cancelar compra</button>
+        <button onClick={() => confirmOrder()} className="buttonItem" style={{backgroundColor: '#219c0b'}} >Confirmar Compra</button>
         {
             (contact.phone !== '' && contact.address !== '' && contact.comment !== '' && contact.name !== '') &&
             
@@ -130,7 +107,7 @@ return (
                     <h4>Direccion: {contact.address}</h4>
                     <h4>Comentario: {contact.comment}</h4>
                     <button onClick={() => setContact({ phone: '', address: '', comment: ''})} 
-                            className='Button' 
+                            className='buttonItem' 
                             style={{backgroundColor: '#db4025'}}>
                         Borrar datos de contacto
                     </button>
@@ -145,7 +122,7 @@ return (
             <ContactForm toggleVisibility={contactFormRef} setContact={setContact} />
         </Togglable>          
     </div>
-    )
- }
+    )    
 
+}         
 export default Cart

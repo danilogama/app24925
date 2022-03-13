@@ -26,7 +26,7 @@ const ContactForm = ({ toggleVisibility, setContact }) => {
 
     return (
         <div className='ContactContainer'>
-          <div>Contacto</div>
+          <h3>Datos de Contacto</h3>
           <form className='ContactForm' onSubmit={handleContactForm}>
             <label className='LabelContact'>Nombre:
               <input
@@ -60,7 +60,7 @@ const ContactForm = ({ toggleVisibility, setContact }) => {
                 onChange={({ target }) => setComment(target.value)}
               />
             </label>
-            <button className='Button' type='submit'>Confirmar</button>
+            <button className='buttonItem' type='submit'>Confirmar</button>
           </form>
         </div>
       )
