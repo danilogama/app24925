@@ -16,8 +16,8 @@ const CartWidget = () => {
                     <div className='cart'>
                         <img src="/images/iconoCarrito.png" alt='iconoCarrito' className='iconoCarrito'/>
                         {getQuantity()}
-                    </div>
-                    <button className='buttonCart' onClick={clear}>Vaciar carrito</button> 
+                    </div>                    
+                    <button className='buttonCart' onClick={clear}>Vaciar carrito</button>                   
                 </>          
                 }
         </Link>
