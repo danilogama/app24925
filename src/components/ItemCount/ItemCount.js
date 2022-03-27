@@ -14,16 +14,12 @@ const ItemCount = ({ stock, initial,  onAdd }) => {
     }, [])
 
     const increment = () => {
-        
         if(count < stock){
             setCount(count + 1)
-        }else{
-            console.log('No hay stock')
         }
     }
 
-    const decrement = () => {        
-        //tambien puede ser: count > initial && setCount(count - 1)
+    const decrement = () => {
         if(count > initial) {
             setCount(count - 1)
         } 

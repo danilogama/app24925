@@ -91,17 +91,19 @@ const Cart = () => {
 
     return ( 
     <div>
-        <h1>Productos del carrito</h1> 
+        <h1 className='titCart'>Productos del carrito</h1> 
         <div className='cartDetail'>
         { cart.map(p => <CartItem key={p.id} {...p}/>) }
         </div>
-        <h1>Total: U$S {getTotal()}</h1>
-        <button onClick={() => clear()} className="buttonItem" style={{backgroundColor: '#db4025'}} >Cancelar compra</button>
-        <button onClick={() => confirmOrder()} className="buttonItem" style={{backgroundColor: '#219c0b'}} >Confirmar Compra</button>
+        <h1 className='totalCart'>Total: U$S {getTotal()}</h1>
+        <button onClick={() => clear()} className="buttonCompra" style={{backgroundColor: '#db4025'}} >Cancelar compra</button>
+        <button onClick={() => confirmOrder()} className="buttonCompra" style={{backgroundColor: '#219c0b'}} >Confirmar Compra</button>
         {
             (contact.phone !== '' && contact.address !== '' && contact.comment !== '' && contact.name !== '') &&
             
-                <div>
+                <div className='infoContact'>
+                    <hr></hr>
+                    <h3>Datos de contacto</h3>
                     <h4>Nombre: {contact.name}</h4>
                     <h4>Telefono: {contact.phone}</h4>
                     <h4>Direccion: {contact.address}</h4>
@@ -111,7 +113,8 @@ const Cart = () => {
                             style={{backgroundColor: '#db4025'}}>
                         Borrar datos de contacto
                     </button>
-                </div>    
+                    <hr></hr>
+                </div>
         }
         <Togglable buttonLabelShow={
                     (contact.phone !== '' && contact.address !== '' && contact.comment !== '' && contact.name !== '') 

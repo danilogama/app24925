@@ -9,10 +9,6 @@ export const getProducts =  new Promise ((resolve,reject) => {
 		},100);
 	});
 
-export const addProduct = (count) =>{
-        console.log('Cantidad de productos: ' + count )
-    }
-
 const Item = ({product}) =>{
 	return (
 		<>    
