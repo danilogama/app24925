@@ -32,4 +32,4 @@ Se incluyó en la subida a GitHub el archivo .env para que se pueda probar sin i
 
 ## Gif 
 
-[alt text] proyectoFinal.gif
+[ Alt text](proyectoFinal.gif)  
