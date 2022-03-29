@@ -35,7 +35,7 @@ export const getItemByCategory = (category) => {
 
 const ItemDetail = ({id, title, stock, category, description, price, pictureUrl}) =>{        
 
-    const {cart, AddItem, removeItem } = useContext(CartContext)
+    const { AddItem } = useContext(CartContext)
     const setNotification = useNotificationServices()    
     const [quantity, setQuantity] = useState(0)
 
@@ -53,12 +53,6 @@ const ItemDetail = ({id, title, stock, category, description, price, pictureUrl}
         AddItem(productToAdd, quantity);        
         setNotification('success',`Se agrego ${title} al carrito`)
     }
-
-    const handleRemoveItem = () =>{
-        
-        removeItem(id,cart);
-    }
-
 	return (	
                 <div className="card cardDetail" key={id}>            
                     <h2>{title}</h2>
@@ -69,8 +63,6 @@ const ItemDetail = ({id, title, stock, category, description, price, pictureUrl}
                         {quantity > 0 ? 
                             <>
                                 <Link to={'/cart'} className='OptionCart'>Terminar compra</Link>    
-                                {/* luego de darle click a eliminar deberia volver a aparecer ItemCount  */}
-                                <button className="buttonRemove" onClick={handleRemoveItem}>Eliminar del carrito</button>
                             </>:                           
                             <ItemCount initial={1} stock={stock} onAdd={handleOnAdd} />
                         }
